@@ -17,7 +17,7 @@ namespace DAL.Implementations.SqlServer
 
         public void Delete(Guid id)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); //ver baja logica 
         }
 
         public Usuario FindByEmail(string email)
