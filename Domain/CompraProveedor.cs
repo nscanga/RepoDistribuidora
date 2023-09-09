@@ -8,7 +8,7 @@ namespace Domain
 {
     public class CompraProveedor
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public int ProveedorId { get; set; }
         public Proveedor Proveedor { get; set; }
         public int ProductoId { get; set; }

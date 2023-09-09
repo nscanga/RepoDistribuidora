@@ -8,7 +8,7 @@ namespace Domain
 {
     public class DetalleVenta
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public int VentaId { get; set; }
         public Venta Venta { get; set; }
         public int ProductoId { get; set; }

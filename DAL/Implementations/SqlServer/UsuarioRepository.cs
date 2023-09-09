@@ -10,6 +10,33 @@ namespace DAL.Implementations.SqlServer
 {
     public class UsuarioRepository : IUsuarioRepository
     {
+        #region Statements
+        private string InsertStatement
+        {
+            get => "INSERT INTO [dbo].[Usuario] (Nombre, FechaNac) VALUES (@Nombre, @FechaNac)";
+        }
+
+        private string UpdateStatement
+        {
+            get => "UPDATE [dbo].[Cliente] SET (Nombre = @Nombre, FechaNac = @FechaNac) WHERE  IdUsuario = @IdUsuario";
+        }
+
+        private string DeleteStatement
+        {
+            get => "DELETE FROM [dbo].[Cliente] WHERE IdUsuario = @IdUsuario";
+        }
+
+        private string SelectOneStatement
+        {
+            get => "SELECT IdUsuario , Nombre, FechaNac FROM [dbo].[Cliente] WHERE IdUsuario = @IdUsuario";
+        }
+
+        private string SelectAllStatement
+        {
+            get => "SELECT IdUsuario , Nombre, FechaNac FROM [dbo].[Cliente]";
+        }
+        #endregion
+
         public void Add(Usuario obj)
         {
             throw new NotImplementedException();

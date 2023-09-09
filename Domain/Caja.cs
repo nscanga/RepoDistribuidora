@@ -8,7 +8,7 @@ namespace Domain
 {
     public class Caja
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public decimal SaldoActual { get; set; }
         public DateTime FechaApertura { get; set; }
         public DateTime FechaCierre { get; set; }

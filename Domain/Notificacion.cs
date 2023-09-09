@@ -8,7 +8,7 @@ namespace Domain
 {
     public class Notificacion
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Mensaje { get; set; }
         public DateTime FechaEnvio { get; set; }
         public string Estado { get; set; }
