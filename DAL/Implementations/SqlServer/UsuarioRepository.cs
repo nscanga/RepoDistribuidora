@@ -15,6 +15,10 @@ namespace DAL.Implementations.SqlServer
     {
         private readonly BitacoraService _bitacoraService;
 
+        public UsuarioRepository()
+        {
+        }
+
         public UsuarioRepository(BitacoraService bitacoraService)
         {
             _bitacoraService = bitacoraService;
@@ -59,7 +63,7 @@ namespace DAL.Implementations.SqlServer
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection("TuCadenaDeConexion"))
+                using (SqlConnection conn = new SqlConnection("MainConString"))
                 {
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(InsertStatement, conn))
@@ -90,7 +94,7 @@ namespace DAL.Implementations.SqlServer
             try
             {
                 Usuario user = null;
-                using (SqlConnection conn = new SqlConnection("TuCadenaDeConexion"))
+                using (SqlConnection conn = new SqlConnection("MainConString"))
                 {
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(FindByEmailStatement, conn))
@@ -127,7 +131,7 @@ namespace DAL.Implementations.SqlServer
             try
             {
                 List<Usuario> users = new List<Usuario>();
-                using (SqlConnection conn = new SqlConnection("TuCadenaDeConexion"))
+                using (SqlConnection conn = new SqlConnection("MainConString"))
                 {
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(ListStatement, conn))
@@ -168,7 +172,7 @@ namespace DAL.Implementations.SqlServer
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection("TuCadenaDeConexion"))
+                using (SqlConnection conn = new SqlConnection("MainConString"))
                 {
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(UpdateStatement, conn))

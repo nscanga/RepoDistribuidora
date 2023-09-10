@@ -48,6 +48,12 @@ namespace BLL.Implementations
             }
         }
 
+        public void AddUser(Usuario usuario)
+        {
+            // Lógica para agregar el usuario
+            _bitacoraService.Write("Usuario agregado exitosamente", LogLevel.Information);
+        }
+
         private bool ValidatePassword(string password, string storedHash)
         {
             using (var sha256 = SHA256.Create())

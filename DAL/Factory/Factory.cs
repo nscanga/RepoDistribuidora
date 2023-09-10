@@ -12,22 +12,11 @@ using System.Threading.Tasks;
 namespace DAL.Factory
 {
     public sealed class FactoryDAL
-    {   
+    {
         #region Singleton
         private readonly static FactoryDAL _instance = new FactoryDAL();
-
-        public static FactoryDAL Current
-        {
-            get
-            {
-                return _instance;
-            }
-        }
-
-        private FactoryDAL()
-        {
-            //Implement here the initialization code
-        }
+        public static FactoryDAL Current { get { return _instance; } }
+        private FactoryDAL() { }
         #endregion
 
         private String backend = ConfigurationManager.AppSettings["Backend"];
@@ -40,6 +29,19 @@ namespace DAL.Factory
                     return new ClienteMemoryRepository();
                 case "SqlServer":
                     return new ClienteSqlServerRepository();
+                default:
+                    return null;
+            }
+        }
+
+        public IUsuarioRepository GetUsuarioRepository()
+        {
+            switch (backend)
+            {
+                //case "Memory":
+                  //  return new UsuarioMemoryRepository();
+                case "SqlServer":
+                    return new UsuarioRepository();
                 default:
                     return null;
             }
