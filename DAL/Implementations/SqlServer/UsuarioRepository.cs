@@ -102,7 +102,7 @@ namespace DAL.Implementations.SqlServer
                             {
                                 user = new Usuario
                                 {
-                                    Id = reader.GetGuid(0),
+                                    IdUsuario = reader.GetGuid(0),
                                     Nombre = reader.GetString(1),
                                     Email = reader.GetString(2),
                                     Contraseña = reader.GetString(3),
@@ -138,7 +138,7 @@ namespace DAL.Implementations.SqlServer
                             {
                                 Usuario user = new Usuario
                                 {
-                                    Id = reader.GetGuid(0),
+                                    IdUsuario = reader.GetGuid(0),
                                     Nombre = reader.GetString(1),
                                     Email = reader.GetString(2),
                                     Contraseña = reader.GetString(3),
@@ -173,7 +173,7 @@ namespace DAL.Implementations.SqlServer
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(UpdateStatement, conn))
                     {
-                        cmd.Parameters.AddWithValue("@Id", obj.Id);
+                        cmd.Parameters.AddWithValue("@Id", obj.IdUsuario);
                         cmd.Parameters.AddWithValue("@Nombre", obj.Nombre);
                         cmd.Parameters.AddWithValue("@Email", obj.Email);
                         cmd.Parameters.AddWithValue("@PasswordHash", obj.Contraseña);
@@ -181,7 +181,7 @@ namespace DAL.Implementations.SqlServer
                         cmd.ExecuteNonQuery();
                     }
                 }
-                _bitacoraService.Write($"Usuario actualizado exitosamente: {obj.Id}", LogLevel.Information);
+                _bitacoraService.Write($"Usuario actualizado exitosamente: {obj.IdUsuario}", LogLevel.Information);
             }
             catch (Exception ex)
             {
